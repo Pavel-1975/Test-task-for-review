@@ -11,7 +11,7 @@ public abstract class GameMenedger : MonoBehaviour
     public int TotalScore { get; private set; }
     public int CurrentResult { get; private set; }
     public int BestResult { get; private set; }
-    public bool Alive { get; private set; } = true;
+    public bool LivesRemained { get; private set; } = true;
 
     private int _currentStandardLiving;
 
@@ -72,11 +72,10 @@ public abstract class GameMenedger : MonoBehaviour
 
         if (_currentStandardLiving <= 0)
         {
-            Alive = false;
+            LivesRemained = false;
 
             Pause?.Invoke();
         }
-
     }
 
     public void RestartGame()
@@ -90,7 +89,7 @@ public abstract class GameMenedger : MonoBehaviour
         SendTotalScore();
 
         CurrentResult = 0;
-        Alive = true;
+        LivesRemained = true;
 
         SendCurrentResult();
 

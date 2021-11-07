@@ -11,7 +11,7 @@ public class ButtonPause : ButtonOnClick
 
     protected override void OnClick()
     {
-        if (_gameMenedger.Alive)
+        if (_gameMenedger.LivesRemained)
             Pause();
     }
 
