@@ -76,7 +76,6 @@ public abstract class GameMenedger : MonoBehaviour
 
             Pause?.Invoke();
         }
-
     }
 
     public void RestartGame()
@@ -109,7 +108,7 @@ public abstract class GameMenedger : MonoBehaviour
         return new Color(Random.value, Random.value, Random.value, 1);
     }
 
-    //Камеру можно двигать, но не вращать.
+    //ГЉГ Г¬ГҐГ°Гі Г¬Г®Г¦Г­Г® Г¤ГўГЁГЈГ ГІГј, Г­Г® Г­ГҐ ГўГ°Г Г№Г ГІГј.
     protected Vector3 GetPosition()
     {
         float z = Random.Range(CameraLeftNear.position.z, CameraLeftBehind.position.z);
