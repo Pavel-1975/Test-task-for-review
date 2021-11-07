@@ -7,11 +7,13 @@ public abstract class GameMenedger : MonoBehaviour
     protected Transform CameraRightNear;
     protected Transform CameraLeftBehind;
 
-    public int CurrentStandardLiving { get; private set; }
     public int MaxLife { get; private set; } = 10;
     public int TotalScore { get; private set; }
     public int CurrentResult { get; private set; }
     public int BestResult { get; private set; }
+    public bool Alive { get; private set; } = true;
+
+    private int _currentStandardLiving;
 
     private readonly float _minSpeed = 0.05f;
     private readonly float _maxSpeed = 0.15f;
@@ -64,21 +66,22 @@ public abstract class GameMenedger : MonoBehaviour
 
     public void EnrollDamagePlayer()
     {
-        if (CurrentStandardLiving > 0)
-        {
-            CurrentStandardLiving -= Random.Range(_minScore, _maxScore);
+        _currentStandardLiving -= Random.Range(_minScore, _maxScore);
 
-            SendDamage();
-        }
-        else
+        SendDamage();
+
+        if (_currentStandardLiving <= 0)
         {
+            Alive = false;
+
             Pause?.Invoke();
         }
+
     }
 
     public void RestartGame()
     {
-        CurrentStandardLiving = MaxLife;
+        _currentStandardLiving = MaxLife;
 
         TotalScore += CurrentResult;
 
@@ -87,6 +90,7 @@ public abstract class GameMenedger : MonoBehaviour
         SendTotalScore();
 
         CurrentResult = 0;
+        Alive = true;
 
         SendCurrentResult();
 
@@ -151,6 +155,6 @@ public abstract class GameMenedger : MonoBehaviour
 
     private void SendDamage()
     {
-        TransferDamage?.Invoke(CurrentStandardLiving);
+        TransferDamage?.Invoke(_currentStandardLiving);
     }
 }
