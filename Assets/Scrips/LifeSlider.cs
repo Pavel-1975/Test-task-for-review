@@ -4,7 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class LifeSlider : MonoBehaviour
 {
-    [SerializeField] private GameMenedger _gameMenedger;
+    [SerializeField] private GameManadger _gameMenedger;
 
     private Slider _slider;
 

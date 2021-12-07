@@ -1677,7 +1677,6 @@ GameObject:
   - component: {fileID: 1285778216}
   - component: {fileID: 1285778218}
   - component: {fileID: 1285778219}
-  - component: {fileID: 1285778217}
   m_Layer: 0
   m_Name: "Ball\u0421ontainer"
   m_TagString: Untagged
@@ -1715,20 +1714,6 @@ MonoBehaviour:
   _cameraLeftNear: {fileID: 2139779}
   _cameraRightNear: {fileID: 2089672376}
   _cameraLeftBehind: {fileID: 798711425}
---- !u!114 &1285778217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285778214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 678baf823d056b1468f3d98ce5702bf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonPause: {fileID: 1978348524}
-  _buttonRestart: {fileID: 1483528374}
 --- !u!114 &1285778218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2036,7 +2021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd2e5c203488a543aeb19a4995ab19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameMenedger: {fileID: 1285778216}
+  _gameManadger: {fileID: 1285778216}
 --- !u!1 &1748326222
 GameObject:
   m_ObjectHideFlags: 0

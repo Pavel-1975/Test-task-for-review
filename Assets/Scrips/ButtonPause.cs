@@ -4,9 +4,7 @@ using UnityEngine.UI;
 public class ButtonPause : ButtonOnClick
 {
     [SerializeField] private Image _panel;
-    [SerializeField] private GameMenedger _gameMenedger;
-
-    public bool IsPause { get; private set; }
+    [SerializeField] private GameManadger _gameMenedger;
 
 
     protected override void OnClick()
@@ -22,9 +20,7 @@ public class ButtonPause : ButtonOnClick
 
     private void Pause()
     {
-        IsPause = !IsPause;
-
-        _panel.transform.gameObject.SetActive(IsPause);
+        _panel.transform.gameObject.SetActive(_gameMenedger.GetPauseState());
     }
 
     private void Start()

@@ -1,17 +1,12 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class ButtonRestart : ButtonOnClick
 {
-   [SerializeField] private GameMenedger _gameMenedger;
-
-    public event UnityAction RestartGame;
+   [SerializeField] private GameManadger _gameMenedger;
 
 
     protected override void OnClick()
     {
-        _gameMenedger.RestartGame();
-
-        RestartGame?.Invoke();
+        _gameMenedger.ButtonClickRestartGame(); 
     }
 }

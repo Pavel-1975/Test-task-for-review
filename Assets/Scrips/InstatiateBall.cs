@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(BallContainer))]
 [RequireComponent(typeof(SaveGame))]
-public class InstatiateBall : GameMenedger
+public class InstatiateBall : GameManadger
 {
     [SerializeField] private BallMove _balloon;
     [SerializeField] private Transform _cameraLeftNear;
@@ -30,6 +29,8 @@ public class InstatiateBall : GameMenedger
     {
         Transform balloon = Instantiate(_balloon.transform, GetPosition(), Quaternion.identity, transform);
 
+        balloon.GetComponent<BallDestroy>()._gameManadger = GetComponent<GameManadger>();
+        balloon.GetComponent<BallMove>()._gameManadger = GetComponent<GameManadger>();
         balloon.GetComponent<MeshRenderer>().material.color = GetRandomColor();
         balloon.GetComponent<ParticleSystemRenderer>().material = balloon.GetComponent<MeshRenderer>().material;
     }
@@ -38,7 +39,7 @@ public class InstatiateBall : GameMenedger
     {
         yield return new WaitForSeconds(_speedCreate);
 
-        if (!GetComponent<BallContainer>().ButtonPause.IsPause)
+        if (!IsPause)
             Instantiate();
 
         StartCoroutine(WaitForSeconds());

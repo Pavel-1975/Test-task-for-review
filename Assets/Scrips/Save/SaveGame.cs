@@ -6,9 +6,9 @@ public class SaveGame : MonoBehaviour
     public string NameFile { get; private set; } = "/Balloon.dat"; 
 
     //##########################
-    [SerializeField] private GameMenedger _gameMenedger;
+    [SerializeField] private GameManadger _gameMenedger;
 
-    public GameMenedger GameMenedger => _gameMenedger;
+    public GameManadger GameMenedger => _gameMenedger;
 
 
     public void OnSaveGame()

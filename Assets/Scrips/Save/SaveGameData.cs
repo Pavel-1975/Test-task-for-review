@@ -10,7 +10,7 @@ public class SaveGameData
         SaveDataGameMenedger(saveGame.GameMenedger);
     }
 
-    private void SaveDataGameMenedger(GameMenedger gameMenedger)
+    private void SaveDataGameMenedger(GameManadger gameMenedger)
     {
         TotalScore = gameMenedger.TotalScore;
 

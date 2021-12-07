@@ -3,15 +3,13 @@ using System.Collections;
 
 public class BallMove : MonoBehaviour
 {
-    private GameMenedger _gameMenedger;
+    [HideInInspector] public GameManadger _gameManadger;
     private float _speed;
 
 
     private void Start()
     {
-        _gameMenedger = transform.root.GetComponent<GameMenedger>();
-
-        _speed = _gameMenedger.GetRandomSpeed();
+        _speed = _gameManadger.GetRandomSpeed();
 
         StartCoroutine(WaitForSeconds());
     }
@@ -20,7 +18,7 @@ public class BallMove : MonoBehaviour
     {
         yield return new WaitForFixedUpdate();
 
-        if (!transform.root.GetComponent<BallContainer>().ButtonPause.IsPause)
+        if (!_gameManadger.IsPause)
             Move();
 
         StartCoroutine(WaitForSeconds());
