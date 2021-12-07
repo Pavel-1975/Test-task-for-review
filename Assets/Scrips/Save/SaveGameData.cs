@@ -7,13 +7,13 @@ public class SaveGameData
 
     public SaveGameData(SaveGame saveGame)
     {
-        SaveDataGameMenedger(saveGame.GameMenedger);
+        SaveDataGameMenedger(saveGame.GameManager);
     }
 
-    private void SaveDataGameMenedger(GameManadger gameMenedger)
+    private void SaveDataGameMenedger(GameManager gameManager)
     {
-        TotalScore = gameMenedger.TotalScore;
+        TotalScore = gameManager.TotalScore;
 
-        BestResult = gameMenedger.BestResult;
+        BestResult = gameManager.BestResult;
     }
 }

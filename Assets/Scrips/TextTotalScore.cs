@@ -3,7 +3,7 @@ using TMPro;
 
 public class TextTotalScore : MonoBehaviour
 {
-    [SerializeField] private GameManadger _gameMenedger;
+    [SerializeField] private GameManager _gameManager;
 
 
     private void ShowScore(int score)
@@ -13,11 +13,11 @@ public class TextTotalScore : MonoBehaviour
 
     private void OnEnable()
     {
-        _gameMenedger.TransferTotalScore += ShowScore;
+        _gameManager.TransferTotalScore += ShowScore;
     }
 
     private void OnDisable()
     {
-        _gameMenedger.TransferTotalScore -= ShowScore;
+        _gameManager.TransferTotalScore -= ShowScore;
     }
 }

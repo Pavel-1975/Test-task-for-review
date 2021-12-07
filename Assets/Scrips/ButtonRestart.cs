@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class ButtonRestart : ButtonOnClick
 {
-   [SerializeField] private GameManadger _gameMenedger;
+   [SerializeField] private GameManager _gameManager;
 
 
     protected override void OnClick()
     {
-        _gameMenedger.ButtonClickRestartGame(); 
+        _gameManager.ButtonClickRestartGame(); 
     }
 }

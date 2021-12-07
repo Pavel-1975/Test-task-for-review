@@ -5,13 +5,13 @@ using System.Collections;
 [RequireComponent(typeof(ParticleSystem))]
 public class BallDestroy : MonoBehaviour
 {
-    [HideInInspector] public GameManadger _gameManadger;
+    [HideInInspector] public GameManager _gameManager;
 
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.TryGetComponent<Floor>(out _) && GetComponent<MeshRenderer>().enabled)
         {
-            _gameManadger.EnrollDamagePlayer();
+            _gameManager.EnrollDamagePlayer();
 
             Destroy(gameObject);
         }
@@ -19,9 +19,9 @@ public class BallDestroy : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!_gameManadger.IsPause && GetComponent<MeshRenderer>().enabled)
+        if (!_gameManager.IsPause && GetComponent<MeshRenderer>().enabled)
         {
-            _gameManadger.EnrollScoresForDistroy();
+            _gameManager.EnrollScoresForDistroy();
 
             GetComponent<ParticleSystem>().Play();
 
@@ -45,13 +45,13 @@ public class BallDestroy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        _gameManadger.InitRestartGame += RestartGame;
+        _gameManager.InitRestartGame += RestartGame;
     }
 
     private void OnDisable()
     {
-        _gameManadger.InitRestartGame -= RestartGame;
+        _gameManager.InitRestartGame -= RestartGame;
     }
 }

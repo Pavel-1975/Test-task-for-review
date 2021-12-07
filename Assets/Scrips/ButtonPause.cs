@@ -4,12 +4,12 @@ using UnityEngine.UI;
 public class ButtonPause : ButtonOnClick
 {
     [SerializeField] private Image _panel;
-    [SerializeField] private GameManadger _gameMenedger;
+    [SerializeField] private GameManager _gameMeneger;
 
 
     protected override void OnClick()
     {
-        if (_gameMenedger.LivesRemained)
+        if (_gameMeneger.LivesRemained)
             Pause();
     }
 
@@ -20,16 +20,16 @@ public class ButtonPause : ButtonOnClick
 
     private void Pause()
     {
-        _panel.transform.gameObject.SetActive(_gameMenedger.GetPauseState());
+        _panel.transform.gameObject.SetActive(_gameMeneger.GetPauseState());
     }
 
     private void Start()
     {
-        _gameMenedger.Pause += OnPause;
+        _gameMeneger.Pause += OnPause;
     }
 
     private void OnApplicationQuit()
     {
-        _gameMenedger.Pause -= OnPause;
+        _gameMeneger.Pause -= OnPause;
     }
 }

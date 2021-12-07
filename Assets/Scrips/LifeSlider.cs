@@ -4,7 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class LifeSlider : MonoBehaviour
 {
-    [SerializeField] private GameManadger _gameMenedger;
+    [SerializeField] private GameManager _gameManager;
 
     private Slider _slider;
 
@@ -13,7 +13,7 @@ public class LifeSlider : MonoBehaviour
     {
         _slider = GetComponent<Slider>();
 
-        _slider.maxValue = _gameMenedger.MaxLife;
+        _slider.maxValue = _gameManager.MaxLife;
     }
 
     private void ShowDamage(int value)
@@ -23,11 +23,11 @@ public class LifeSlider : MonoBehaviour
 
     private void OnEnable()
     {
-        _gameMenedger.TransferDamage += ShowDamage;
+        _gameManager.TransferDamage += ShowDamage;
     }
 
     private void OnDisable()
     {
-        _gameMenedger.TransferDamage -= ShowDamage;
+        _gameManager.TransferDamage -= ShowDamage;
     }
 }

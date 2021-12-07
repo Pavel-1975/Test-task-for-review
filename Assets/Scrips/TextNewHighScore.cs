@@ -3,7 +3,7 @@ using TMPro;
 
 public class TextNewHighScore : MonoBehaviour
 {
-    [SerializeField] private GameManadger _gameMenedger;
+    [SerializeField] private GameManager _gameManager;
 
 
     private void ShowScore(int score)
@@ -13,11 +13,11 @@ public class TextNewHighScore : MonoBehaviour
 
     private void OnEnable()
     {
-        _gameMenedger.TransferBestResult += ShowScore;
+        _gameManager.TransferBestResult += ShowScore;
     }
 
     private void OnDisable()
     {
-        _gameMenedger.TransferBestResult -= ShowScore;
+        _gameManager.TransferBestResult -= ShowScore;
     }
 }
