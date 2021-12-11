@@ -1,16 +1,6 @@
-using UnityEngine;
-using TMPro;
 
-public class TextTotalScore : MonoBehaviour
+public class TextTotalScore : Score
 {
-    [SerializeField] private GameManager _gameManager;
-
-
-    private void ShowScore(int score)
-    {
-        GetComponent<TMP_Text>().text = score.ToString();
-    }
-
     private void OnEnable()
     {
         _gameManager.TransferTotalScore += ShowScore;

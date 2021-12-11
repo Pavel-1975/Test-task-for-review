@@ -1,16 +1,6 @@
-using UnityEngine;
-using TMPro;
 
-public class TextNewHighScore : MonoBehaviour
+public class TextNewHighScore : Score
 {
-    [SerializeField] private GameManager _gameManager;
-
-
-    private void ShowScore(int score)
-    {
-        GetComponent<TMP_Text>().text = score.ToString();
-    }
-
     private void OnEnable()
     {
         _gameManager.TransferBestResult += ShowScore;
